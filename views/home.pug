@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+block content
+    h1 Welcome to Business Reviews!
+    h3 What would you like to do?
+
+    form(action='/users_page', method='GET')
+        p View Users
+        input(type='submit', value='View Users')
+    br
+    form(action='/business_page', method='GET')
+        p View Businesses
+        input(type='submit', value='View Businesses')
+    br
+    form(action='/reviews_page', method='GET')
+        p View Reviews
+        input(type='submit', value='View Reviews')
+    br
+    form(action='/checkins_page', method='GET')
+        p View Checkins
+        input(type='submit', value='View Checkins')
+    br
+    form(action="execute_queries", method='GET')
+        p Execute Queries
+        input(type='submit', value='Execute Queries')

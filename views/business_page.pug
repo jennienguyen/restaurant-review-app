@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+block content
+    h1 Welcome to the Businesses Page!
+
+    h3 Insert a Business
+    form(action='/business_insert', method='POST')
+
+        p Business Name:
+        input(type='text', name='business_name', value='')
+        p active:
+        select(name='active')
+            option(value='FALSE') Inactive
+            option(value='TRUE') Active
+        p category:
+        input(type='text', name='categories', value='')
+        br
+        input(type='submit', value='Click here to insert a business')
+    br
+    br
+    h3 Delete a Business
+    form(action='/business_delete', method='POST')
+
+        p Business Name:
+        input(type='text', name='business_name', value='')
+        p business_id:
+        input(type='text', name='business_id', value='')
+        br
+        input(type='submit', value='Click here to delete a business')
+    br
+    br
+    h3 Update a Business
+    form(action='/business_update', method='POST')
+        p business_id:
+        input(type='text', name='business_id', value='')
+        p old business name:
+        input(type='text', name='old_business_name', value='')
+        p updated business name:
+        input(type='text', name='new_business_name', value='')
+        p updated business active status:
+        select(name='active')
+            option(value='FALSE') Inactive
+            option(value='TRUE') Active
+        p updated business category:
+        input(type='text', name='categories', value='')
+        br
+        input(type='submit', value='Click here to update a business')
+

@@ -1,0 +1,96 @@
+doctype html
+html(lang="en")
+block content
+    h1 Execute Queries
+
+    form(action='/query1', method='POST')
+        p 1. Display all users that have at least !{' '}
+            input(type='number', name='value', value=1)
+            |  reviews. !{' '}
+            input(type='submit', value='Execute Query 1')
+    br
+    form(action='/query2', method='POST')
+        p 2. Display the names of the users that have made !{' '}
+            input(type='number', name='value', value='2')
+            |  reviews or !{' '}
+            select(name='operator')
+                option(value='less') Less
+                option(value='more') More
+                option(value='none') None
+            | .!{' '}
+            input(type='submit', value='Execute Query 2')
+    br
+    form(action='/query3', method='POST')
+        p 3. Display all !{' '}
+            select(name='operator')
+                option(value='FALSE') Inactive
+                option(value='TRUE') Active
+            |   businesses. !{' '}
+            input(type='submit', value='Execute Query 3')
+    br
+    form(action='/query4',method="POST")
+        p 4. Display the names of all
+            input(type='text', name='value1', value='pizza restaurants')
+            |   that have a rating of !{' '}
+            select(name='value2')
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
+            | !{' '} stars or !{' '}
+            select(name='value3')
+                option(value='above') Above
+                option(value='below') Below
+            | .!{' '}
+            input(type='submit', value='Execute Query 4')
+    br
+    form(action='/query5', method='POST')
+        p 5. Display the number of stores that had at least !{' '}
+            input(type='number', name='value1', value=1)
+            |   check-in on Friday.
+            input(type='submit', value='Execute Query 5')
+    br
+    form(action='/query6', method='POST')
+        p 6. Display the test of all reviews made for the!{' '}
+            input(type='text', name='value1', value='Arcadia Tavern')
+            |  .!{' '}
+            input(type='submit', value='Execute Query 6')
+    br
+    form(action='/query7', method='POST')
+        p 7. Display the names of the restaurants that  !{' '}
+            select(name='value1')
+                option(value='have') have taken at least
+                option(value='have not') have never taken a
+            | !{' '}
+            select(name='value2')
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
+            | !{' '} -star or !{' '}
+            select(name='value3')
+                option(value='2') 2
+                option(value='1') 1
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
+            |   !{' '} -star reviews. !{' '}
+            input(type='submit', value='Execute Query 7')
+    br
+    form(action='/query8', method='POST')
+        p 8. Display the average rating and total number of reviews from all!{' '}
+            input(type='text', name='value1', value='KFC')
+            | !{' '}stores.!{' '}
+            input(type='submit', value='Execute Query 8')
+    br
+    form(action='/query9', method='POST')
+        p 9. Display a list of the ids of the top!{' '}
+            input(type='number', name='value1', value=10)
+            | !{' '}stores in terms of the number of reviews they have received.!{' '}
+            input(type='submit', value='Execute Query 9')
+    br
+    form(action='/query10', method='POST')
+        p 10. Display the names of the user that has made the most reviews. !{' '}
+            input(type='submit', value='Execute Query 10')

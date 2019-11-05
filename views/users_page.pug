@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+block content
+    h1 Welcome to the Users page!
+
+    h3 Insert a User
+    form(action='/users_insert', method='POST')
+        p Name:
+        input(type='text', name='name', value='')
+        br
+        input(type='submit', value='Insert this User')
+    br
+    br
+
+    h3 Delete a User
+    form(action='/users_delete', method='POST')
+        p User Id:
+        input(type='text', name='user_id', value='')
+        p Name:
+        input(type='text', name='name', value='')
+        br
+        input(type='submit', value='Delete this User')
+    br
+    br
+
+    h3 Update a User
+    form(action='/users_update', method='POST')
+        p User Id:
+        input(type='text', name='user_id', value='')
+        p Name:
+        input(type='text', name='name', value='')
+        p Updated Name:
+        input(type='text', name='new_name', value='')
+        br
+        input(type='submit', value='Update this User')
+
+
+

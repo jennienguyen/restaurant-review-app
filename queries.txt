@@ -1,0 +1,90 @@
+Jennie Nguyen & Anna Watson
+
+1. Display all users that have at least 1 review.
+QUERY1:
+SELECT DISTINCT users.name
+FROM users
+WHERE users.user_id IN (SELECT reviews.user_id
+   FROM reviews
+   GROUP BY reviews.user_id
+   HAVING  count(*) >= 1)
+
+2. Display the name of the users that have made 2 reviews or less.
+QUERY2:
+
+SELECT DISTINCT users.name
+FROM users
+WHERE users.user_id IN (SELECT reviews.user_id
+   FROM reviews
+   GROUP BY reviews.user_id
+   HAVING  count(*) >=2
+
+3. Display all inactive businesses.
+QUERY3:
+
+SELECT business.business_name
+        FROM business
+        WHERE business.active = 'FALSE';
+
+4. Display the names of all pizza restaurants that have a rating of 4 stars or above.
+QUERY4:
+
+SELECT business.business_name, business.active, business.categories
+FROM business
+WHERE business.categories = 'Pizza Restaurants'
+	AND business.business_id IN (SELECT reviews.business_id
+		FROM reviews
+		GROUP BY reviews.business_id
+		HAVING avg(reviews.stars) >= 4);
+
+5. Display the number of stores that had at least one check-in on Friday.
+QUERY5:
+SELECT count(*)
+	FROM business B, checkins C
+	WHERE C.friday >= 1 AND C.business_id = B.business_id;
+6. Display the text of all reviews made for the Arcadia Tavern.
+QUERY6: 
+SELECT R.review_text
+FROM business B, reviews R
+WHERE B.business_name = 'Arcadia Tavern' AND
+	R.business_id = B.business_id
+
+7. Display the names of the restaurants that have taken at least one 1-star or 2-star
+review.
+QUERY7:
+SELECT DISTINCT B.business_name
+FROM business B
+WHERE B.business_id IN(SELECT R.business_id
+					FROM reviews R
+					WHERE R.stars = 1 OR R.stars = 2)
+
+8. Display the average rating and total number of reviews of all KFC stores.
+QUERY8:
+SELECT avg(R.stars), count(*)
+FROM reviews R, business B
+WHERE B.business_id = R.business_id
+	AND UPPER(B.business_name) = 'KFC'
+
+9. Display a list of the ids of the top 10 stores in terms of the number of reviews they
+have received.
+QUERY9:
+SELECT business_id
+        FROM reviews
+        tGROUP BY business_id
+        ORDER BY count(*) DESC
+        LIMIT 10
+
+10. Display the name of the user that has made the most reviews.
+QUERY10:
+SELECT U.name
+FROM users U
+WHERE U.user_id IN (SELECT R.user_id
+			FROM reviews R
+			GROUP BY R.user_id
+			HAVING count(*) >= ALL(SELECT count(*)
+						FROM reviews R1
+						GROUP BY R1.user_id))
+
+
+
+

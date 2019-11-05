@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+block content
+    h1 Welcome to the Checkins Page!
+
+    h3 Insert a Checkin
+    form(action='/checkins_insert', method='POST')
+
+        p business_id
+        input(type='text', name='business_id', value='')
+        p active:
+        select(name='date')
+            option(value='friday') Friday
+            option(value='sunday') Sunday
+            option(value='monday') Monday
+            option(value='tuesday') Tuesday
+            option(value='wednesday') Wednesday
+            option(value='thursday') Thursday
+            option(value='saturday') Saturday
+        |
+        br
+        input(type='submit', value='Click here to insert a checkin')
+    br
+    br
+    h3 Delete a Checkin
+    form(action='/checkins_delete', method='POST')
+
+        p business_id
+        input(type='text', name='business_id', value='')
+        p active:
+        select(name='date')
+            option(value='friday') Friday
+            option(value='sunday') Sunday
+            option(value='monday') Monday
+            option(value='tuesday') Tuesday
+            option(value='wednesday') Wednesday
+            option(value='thursday') Thursday
+            option(value='saturday') Saturday
+        |
+        br
+        input(type='submit', value='Click here to delete a checkin')

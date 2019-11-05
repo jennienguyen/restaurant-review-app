@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+block content
+    h1 Welcome to the Reviews Page!
+
+    h3 Insert a Review
+    form(action='/reviews_insert', method='POST')
+
+        p business_id
+            input(type='text', name='business_id', value='')
+        p user_id
+            input(type='text', name='user_id', value='')
+        p stars:
+        select(name='stars')
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+        |
+        p review text:
+            input(type='text', name='review_text', value='')
+        br
+        input(type='submit', value='Click here to insert a review')
+    br
+    br
+    h3 Delete a Review
+
+    form(action='/reviews_delete', method='POST')
+
+        p review_id
+            input(type='text', name='review_id', value='')
+        br
+        input(type='submit', value='Click here to delete a review')
+    br
+    br
+    h3 Update a Review
+
+    form(action='/reviews_update', method='POST')
+
+        p review_id
+            input(type='text', name='review_id', value='')
+        p new stars:
+        select(name='stars')
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+        |
+        p new review text:
+            input(type='text', name='review_text', value='')
+        br
+        input(type='submit', value='Click here to update a review')
+    br
+    br
